@@ -1,0 +1,156 @@
+/* Подключаем веселый, но читаемый шрифт (как в комиксах или букваре) */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Patrick+Hand&display=swap');
+
+:root {
+    /* Цвета: Яркие, как фломастеры */
+    --crayon-blue: #0099ff;   /* Цвет "того самого" купола, но ярче */
+    --crayon-white: #ffffff;
+    --crayon-red: #ff4d4d;    /* Яркий красный */
+    --crayon-gold: #ffcc00;   /* Золото/Желтый */
+    --crayon-dark: #333333;   /* Темно-серый для текста (мягче черного) */
+    --bg-paper: #fffdf5;      /* Цвет альбомного листа */
+}
+
+body {
+    /* Фон: Сине-белые полоски (отсылка к острову), но в стиле "пижамы" или обоев в детской */
+    background: repeating-linear-gradient(
+        45deg,
+        var(--crayon-blue),
+        var(--crayon-blue) 40px,
+        #e6f7ff 40px,
+        #e6f7ff 80px
+    );
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+    color: var(--crayon-dark);
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === КОНТЕЙНЕР (Лист бумаги) === */
+body > * {
+    max-width: 850px;
+    width: 95%;
+    box-sizing: border-box;
+}
+
+/* Оформление блоков (как будто вырезаны из бумаги) */
+div, ul, p, h1, h2 {
+    background: var(--bg-paper);
+    /* Неровные края (эффект ручной работы) */
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    border: 3px solid var(--crayon-dark);
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.1); /* Мягкая тень */
+    margin-bottom: 20px;
+}
+
+/* === ЗАГОЛОВКИ === */
+h1 {
+    font-family: 'Patrick Hand', cursive; /* Шрифт "от руки" */
+    text-align: center;
+    color: var(--crayon-red);
+    font-size: 3rem;
+    padding: 20px;
+    border: 4px dashed var(--crayon-blue); /* Пунктирная рамка */
+    background: #fff;
+    transform: rotate(-1deg); /* Чуть криво, как дети клеят */
+}
+
+h2 {
+    font-family: 'Patrick Hand', cursive;
+    color: var(--crayon-blue);
+    text-align: center;
+    font-size: 2rem;
+    padding: 15px;
+}
+
+/* === ТЕКСТ (ЧИТАЕМОСТЬ) === */
+/* Специально для задания: делаем код и текст очень понятным */
+p, li, div {
+    font-size: 1.3rem; /* Крупный текст */
+    line-height: 1.6;  /* Большое расстояние между строк */
+    padding: 20px;
+    font-weight: 600;  /* Жирный шрифт для четкости */
+}
+
+/* Выделение важного (php код или имена) */
+b, strong {
+    background-color: var(--crayon-gold);
+    color: var(--crayon-dark);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: 1px solid var(--crayon-dark);
+}
+
+/* === МЕНЮ И ССЫЛКИ (КУБИКИ) === */
+ul {
+    list-style: none;
+    padding: 30px;
+    background: #fff;
+    border: 4px solid var(--crayon-gold);
+}
+
+li {
+    margin-bottom: 15px;
+    /* Убираем фон у li, так как он есть у ссылки */
+    background: none; 
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+a {
+    display: block; /* Ссылка на всю ширину */
+    background-color: var(--crayon-white);
+    text-decoration: none;
+    color: var(--crayon-dark);
+    padding: 15px 20px;
+    border: 3px solid var(--crayon-blue);
+    border-radius: 15px;
+    transition: transform 0.2s, background 0.2s;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* При наведении - кубик нажимается */
+a:hover {
+    background-color: var(--crayon-blue);
+    color: white;
+    transform: scale(1.02) rotate(1deg);
+    cursor: pointer;
+}
+
+/* Добавим иконки-игрушки перед текстом */
+li:nth-child(1) a::before { content: "🧸 "; }
+li:nth-child(2) a::before { content: "🎨 "; }
+li:nth-child(3) a::before { content: "🏝️ "; }
+li:nth-child(4) a::before { content: "🎪 "; }
+li:nth-child(5) a::before { content: "🍬 "; }
+li:nth-child(6) a::before { content: "🇺🇸 "; }
+
+/* === ПОДВАЛ === */
+footer {
+    background: var(--crayon-white) !important;
+    border: 3px solid var(--crayon-red) !important;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+hr {
+    border: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--crayon-red) 0,
+        var(--crayon-red) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    margin: 30px 0;
+}
